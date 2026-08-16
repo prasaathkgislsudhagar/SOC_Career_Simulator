@@ -1,0 +1,16 @@
+# Logs and caches
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# VS Code local user data (optional settings)
+.vscode/*
+!.vscode/launch.json

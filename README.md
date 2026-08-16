@@ -1,149 +1,162 @@
-# 🛡️ Cybersecurity Projects & Labs
+# 🛡️ SOC Career Simulator & Cyber Defender Progression Platform
 
-Welcome to my **Cybersecurity Projects Repository**.
+A full-stack, gamified cybersecurity operations center (SOC) simulation platform designed for aspiring security analysts and professionals. Players start as a **Tier 1 Security Analyst** and unlock higher roles (**Tier 2 Analyst**, **Tier 3 Incident Responder**, **SOC Manager**, and **Senior SOC Manager**) by analyzing realistic SIEM alerts, triaging incidents, mapping MITRE ATT&CK techniques, and meeting strict SLA response targets.
 
-This repository contains a collection of hands-on cybersecurity projects, labs, tools, simulations, and practice environments developed to build practical skills in **SOC operations, threat detection, incident response, log analysis, SIEM, network security, and defensive security**.
+This repository combines the practical ambition of a cybersecurity learning portfolio with a live SOC simulation experience. It is meant to demonstrate hands-on skills in security operations, incident response, log analysis, threat detection, and security workflow automation.
 
-The projects in this repository are focused on learning cybersecurity through **practical implementation rather than theory alone**.
+---
+
+## 🚀 Key Features
+
+- **Realistic Incident Triage**: Live SIEM log console, threat intelligence, and guided hints for incident categorization.
+- **Role Progression Tree**: Unlock advanced roles based on performance scoring averages.
+- **Excel Database Integration**: User profiles are stored in server-side Excel (`data/users.xlsx` under the `Users` worksheet).
+- **Profile-Based Auto-Authentication**: Direct registration → Excel save → automatic authentication into the SOC simulator without separate login friction.
+- **Interactive Scoring Rubric**: 7-part evaluation (log analysis, MITRE ATT&CK alignment, containment directives, SLA compliance).
+- **Audio Feedback**: Immersive cybersecurity SFX for alerts, clicks, completions, and errors.
+- **Data Protection**: Direct static file downloads of database files (`data/users.xlsx`, `db/soc_platform.db`) are blocked for security.
 
 ---
 
 ## 🎯 Repository Objective
 
-The main objective of this repository is to document and demonstrate my practical cybersecurity learning journey through different projects and security labs.
+This project is designed to help users practice the real-world questions analysts ask during a live investigation:
 
-The projects cover areas such as:
+> What happened?
+>
+> How do I detect it?
+>
+> How do I investigate it?
+>
+> Is it a true positive or false positive?
+>
+> What evidence should I collect?
+>
+> What should a SOC analyst do next?
 
-* 🔐 Cybersecurity fundamentals
-* 🛡️ Blue Team / Defensive Security
-* 👨‍💻 SOC Analyst Operations
-* 🚨 Security Alert Investigation
-* 📊 Log Analysis
-* 🔎 Threat Detection
-* 🧩 Incident Response
-* 🖥️ Windows Security Events
-* 🌐 Network Security
-* 📡 SIEM Concepts
-* 🛠️ Security Tools
-* 🧪 Cybersecurity Practice Labs
+The goal is to build practical judgment in cybersecurity operations rather than memorizing security theory alone.
 
 ---
 
-## 📂 Projects
+## 📁 Project Structure
 
-This repository contains multiple cybersecurity projects, labs, experiments, and practice environments. Each project focuses on developing practical security knowledge through hands-on implementation.
+```text
+.
+├── index.html                  # Main application HTML shell
+├── server.py                   # Python backend with openpyxl Excel integration & REST API
+├── server.js                   # Node.js / Express backend option with xlsx library
+├── package.json                # Node.js project manifest and dependencies
+├── data/
+│   └── users.xlsx              # Excel database (worksheet: Users)
+├── db/
+│   └── soc_platform.db         # SQLite storage for session tokens & progress
+├── js/
+│   ├── app.js                  # Application orchestrator & router
+│   ├── api.js                  # HTTP REST API client
+│   ├── state.js                # Central state management
+│   ├── audio.js                # Web Audio API sound effects engine
+│   ├── data/                   # Scenario data for Tiers 1-3, Manager & Senior Manager
+│   └── views/                  # UI view controllers (Auth, Career Path, Rules, Tier workspaces)
+├── css/
+│   ├── main.css                # Global design system, typography & colors
+│   ├── components.css          # Cards, badges, buttons, modals & toasts
+│   ├── sim.css                 # SIEM terminal, triage forms & career map styles
+│   └── animations.css          # Cyber scan lines, pulse glows & transitions
+├── scripts/
+│   └── export_users.py         # Utility script to export Excel users to CSV / JSON
+├── README.md                  # Project overview and setup guide
+└── .gitignore                 # Git ignore rules
+```
 
 ---
 
 ## 🧠 Skills Demonstrated
 
-Through these projects, I am developing practical knowledge in:
+This project demonstrates practical knowledge in:
 
-| Area              | Skills                                       |
-| ----------------- | -------------------------------------------- |
-| SOC               | Alert monitoring, triage, investigation      |
-| SIEM              | Log ingestion, searching, correlation        |
-| Windows           | Event ID analysis, authentication monitoring |
-| Networking        | IPs, ports, protocols, DNS, VPN              |
-| Threat Detection  | IOC identification, suspicious behavior      |
-| Incident Response | Triage, containment, investigation           |
-| Blue Team         | Defensive monitoring and analysis            |
-| Security Analysis | Log correlation and investigation            |
-| Automation        | Scripting and security workflow automation   |
+- SOC operations and alert triage
+- SIEM log investigation and correlation
+- MITRE ATT&CK mapping and case analysis
+- Incident response workflow and containment thinking
+- Threat detection and suspicious behavior analysis
+- Blue team defensive monitoring
+- Security automation and data handling
+- User and workflow data management for simulated SOC environments
 
 ---
 
 ## 🛠️ Technologies & Tools
 
-Technologies and tools used across the projects may include:
-
-* Python
-* JavaScript
-* HTML
-* CSS
-* Node.js
-* Git & GitHub
-* SIEM platforms
-* Windows Event Logs
-* Networking tools
-* Security monitoring tools
-* APIs
-* Excel / structured data storage
+- Python
+- JavaScript
+- HTML
+- CSS
+- Node.js
+- SQLite / Excel integration
+- Git & GitHub
+- Security event analysis workflows
+- SIEM-style interface design
 
 ---
 
-## 📈 Learning Roadmap
+## 💻 Quick Start
 
-My cybersecurity learning journey is organized around progressively developing practical skills:
+### Option 1: Python Backend (Recommended)
 
-```text
-Cybersecurity Fundamentals
-          ↓
-Networking Fundamentals
-          ↓
-Linux & Windows
-          ↓
-Security Logs
-          ↓
-SIEM
-          ↓
-SOC Operations
-          ↓
-Threat Detection
-          ↓
-Incident Response
-          ↓
-Threat Hunting
-          ↓
-Security Automation
+```bash
+python3 server.py
 ```
 
----
+Open http://localhost:8000 in your browser.
 
-## 🧪 Hands-On Approach
+### Option 2: Node.js Backend
 
-Each project is intended to answer practical questions such as:
+```bash
+npm install
+npm start
+```
 
-> What happened?
-
-> How do I detect it?
-
-> How do I investigate it?
-
-> Is it a true positive or false positive?
-
-> What evidence should I collect?
-
-> What should a SOC analyst do next?
-
-This repository focuses on developing the ability to **analyze security events and make investigation decisions**, not simply memorize cybersecurity concepts.
+Open http://localhost:8000 in your browser.
 
 ---
 
-## 📚 Purpose of This Repository
+## 📊 Exporting User Database
 
-This repository serves as:
+Use the helper script to export user records in a structured format:
 
-* A cybersecurity learning portfolio
-* A collection of hands-on security labs
-* A place to document projects and experiments
-* A practical SOC analyst training environment
-* A reference for future cybersecurity projects
+```bash
+python3 scripts/export_users.py
+```
+
+This helps maintain a repeatable data pipeline for the project’s user and progression records.
 
 ---
 
 ## ⚠️ Disclaimer
 
-All projects and simulations in this repository are created for **educational and authorized cybersecurity practice purposes**.
-
-Do not use the techniques or tools against systems, networks, or accounts without proper authorization.
+All project materials are created for educational and authorized cybersecurity practice purposes only. Do not use these techniques against systems, networks, or accounts without proper authorization.
 
 ---
 
 ## 🚀 Continuous Development
 
-This repository is continuously being updated with new cybersecurity projects, labs, simulations, investigations, and security experiments.
+This repository is continuously being updated with additional SOC scenarios, defensive workflows, alert investigations, and new security simulation features.
 
 **Learning → Building → Testing → Investigating → Improving**
+To view or export the registered user profiles from `data/users.xlsx`:
+```bash
+# Print formatted user table in terminal
+python3 scripts/export_users.py
+
+# Export to CSV
+python3 scripts/export_users.py --csv
+
+# Export to JSON
+python3 scripts/export_users.py --json
+```
 
 ---
+
+## 📜 License
+MIT License. Built for cybersecurity training, academic labs, and hands-on defender skill development.
+>>>>>>> df1e313 (Initial commit)
